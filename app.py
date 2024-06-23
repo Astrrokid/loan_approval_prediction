@@ -1,7 +1,6 @@
 import numpy as np
 import pickle
 import streamlit as st
-import joblib
 
 loaded_model = pickle.load(open('decision_tree_opt.pkl', 'rb'))
 loaded_scaler_model = pickle.load(open('scaler.pkl', 'rb'))
