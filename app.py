@@ -2,8 +2,17 @@ import numpy as np
 import pickle
 import streamlit as st
 
-loaded_model = pickle.load(open('decision_tree_opt.pkl', 'rb'))
-loaded_scaler_model = pickle.load(open('scaler.pkl', 'rb'))
+try:
+    with open('decision_tree_opt.pkl', 'rb') as model_file:
+        loaded_model = pickle.load(model_file)
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+
+try:
+    with open('scaler.pkl', 'rb') as scaler_file:
+        loaded_scaler_model = pickle.load(scaler_file)
+except Exception as e:
+    st.error(f"Error loading scaler: {e}")
 
 options_edu = {
     'Non-Graduate': 0,
